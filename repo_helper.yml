@@ -20,3 +20,4 @@ python_versions:
 
 exclude_files:
   - tox
+  - pre-commit

@@ -36,26 +36,8 @@ repos:
     - id: ensure-dunder-all
       files: ^pprint36/.*\.py$
 
- - repo: https://github.com/pre-commit/pygrep-hooks
-   rev: v1.5.1
-   hooks:
-    - id: python-no-eval
-
- - repo: https://github.com/asottile/pyupgrade
-   rev: v1.5.1
-   hooks:
-    - id: pyupgrade
-      args: [--py36-plus]
-
  - repo: https://github.com/Lucas-C/pre-commit-hooks
    rev: v1.1.7
    hooks:
     - id: forbid-crlf
     - id: remove-crlf
-
-
- - repo: https://github.com/domdfcoding/yapf-isort
-   rev: v0.3.0
-   hooks:
-    - id: yapf-isort
-      exclude: ^(doc-source/conf|__pkginfo__|make_conda_recipe|setup)\.py$

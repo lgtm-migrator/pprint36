@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: domdfcoding/octocheese@master
         with:
-          pypi_name: "pprint-36"
+          pypi_name: "pprint36"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

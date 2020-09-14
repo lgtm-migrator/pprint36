@@ -36,19 +36,19 @@ __all__ = [
 		]
 
 __copyright__ = """
-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+2020 Python Software Foundation <dominic@davis-foster.co.uk>
 """
 
 __version__ = "3.9.0.0"
-modname = "pprint-36"
-pypi_name = "pprint-36"
-import_name = "pprint_36"
-__license__ = "BSD License"
+modname = "pprint36"
+pypi_name = "pprint36"
+import_name = "pprint36"
+__license__ = "PSFLicense"
 short_desc = 'Backport of pprint from Python 3.9 to Python 3.6-3.8'
-__author__ = author = 'Dominic Davis-Foster'
+__author__ = author = 'Python Software Foundation'
 author_email = 'dominic@davis-foster.co.uk'
 github_username = "domdfcoding"
-web = github_url = "https://github.com/domdfcoding/pprint-36"
+web = github_url = "https://github.com/domdfcoding/pprint36"
 repo_root = pathlib.Path(__file__).parent
 install_requires = (repo_root / "requirements.txt").read_text(encoding="utf-8").split('\n')
 extras_require = {'all': []}
@@ -56,7 +56,7 @@ extras_require = {'all': []}
 
 
 project_urls = {
-		"Documentation": "https://pprint-36.readthedocs.io",
+		"Documentation": "https://pprint36.readthedocs.io",
 		"Issue Tracker": f"{github_url}/issues",
 		"Source Code": github_url,
 		}

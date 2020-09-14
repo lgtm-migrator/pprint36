@@ -1,0 +1,12 @@
+# Configuration for 'repo_helper' (https://github.com/domdfcoding/repo_helper)
+---
+modname: 'pprint-36'
+copyright_years: '2020'
+author: 'Dominic Davis-Foster'
+email: 'dominic@davis-foster.co.uk'
+username: 'domdfcoding'
+version: '3.9.0.0'
+license: 'BSD'
+short_desc: 'Backport of pprint from Python 3.9 to Python 3.6-3.8'
+
+enable_conda: False

@@ -14,11 +14,17 @@ Backport of pprint from Python 3.9 to Python 3.6-3.8
 #  See the LICENSE file for details.
 #
 
-# this package
-from ._pprint import *
+import sys
+
+if sys.version_info[:2] >= (3, 9):
+	from pprint import *
+else:
+	from ._pprint import *
 
 __author__: str = "Python Software Foundation"
 __copyright__: str = "2001-2020 Python Software Foundation"
 __license__: str = "PSF License"
 __version__: str = "3.9.0.0"
 __email__: str = "dominic@davis-foster.co.uk"
+
+__all__ = ["pprint", "pformat", "isreadable", "isrecursive", "saferepr", "PrettyPrinter", "pp"]

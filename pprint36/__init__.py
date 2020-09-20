@@ -24,7 +24,7 @@ else:
 __author__: str = "Python Software Foundation"
 __copyright__: str = "2001-2020 Python Software Foundation"
 __license__: str = "PSF License"
-__version__: str = "3.9.0.1"
+__version__: str = "3.9.0.2"
 __email__: str = "dominic@davis-foster.co.uk"
 
 __all__ = ["pprint", "pformat", "isreadable", "isrecursive", "saferepr", "PrettyPrinter", "pp"]

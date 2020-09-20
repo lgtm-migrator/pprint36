@@ -39,7 +39,7 @@ __copyright__ = """
 2020 Python Software Foundation <dominic@davis-foster.co.uk>
 """
 
-__version__ = "3.9.0.1"
+__version__ = "3.9.0.2"
 modname = "pprint36"
 pypi_name = "pprint36"
 import_name = "pprint36"

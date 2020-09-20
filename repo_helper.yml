@@ -5,7 +5,7 @@ copyright_years: '2020'
 author: 'Python Software Foundation'
 email: 'dominic@davis-foster.co.uk'
 username: 'domdfcoding'
-version: '3.9.0.0'
+version: '3.9.0.1'
 license: 'PSF License'
 short_desc: 'Backport of pprint from Python 3.9 to Python 3.6-3.8'
 

@@ -86,7 +86,7 @@ The pertinent changes from Python 3.6 to Python 3.9 are:
 .. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/pprint36
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/pprint36/v3.9.0.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/pprint36/v3.9.0.1
 	:target: https://github.com/domdfcoding/pprint36/pulse
 	:alt: GitHub commits since tagged version
 

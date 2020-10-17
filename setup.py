@@ -12,13 +12,10 @@ sys.path.append('.')
 # this package
 from __pkginfo__ import *  # pylint: disable=wildcard-import
 
-
-
 setup(
 		description='Backport of pprint from Python 3.9 to Python 3.6-3.8',
 		extras_require=extras_require,
 		install_requires=install_requires,
 		py_modules=[],
 		version=__version__,
-
 		)

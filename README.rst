@@ -40,7 +40,7 @@ The pertinent changes from Python 3.6 to Python 3.9 are:
 
 
 .. |travis| image:: https://github.com/domdfcoding/pprint36/workflows/Linux%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/pprint36/actions?query=workflow%3A%Linux+Tests%22
+	:target: https://github.com/domdfcoding/pprint36/actions?query=workflow%3A%22Linux+Tests%22
 	:alt: Linux Test Status
 
 .. |actions_windows| image:: https://github.com/domdfcoding/pprint36/workflows/Windows%20Tests/badge.svg

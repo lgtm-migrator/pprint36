@@ -1,3 +1,5 @@
+# type: ignore
+
 # stdlib
 import collections
 import collections.abc

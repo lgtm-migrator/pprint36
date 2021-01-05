@@ -21,3 +21,16 @@ python_versions:
 
 exclude_files:
   - pre-commit
+
+tox_unmanaged:
+  - "testenv:lint"
+
+keywords:
+ - pprint
+ - prettyprint
+ - backport
+
+classifiers:
+ - 'Development Status :: 5 - Production/Stable'
+ - 'Intended Audience :: Developers'
+ - 'Topic :: Software Development :: Libraries :: Python Modules'

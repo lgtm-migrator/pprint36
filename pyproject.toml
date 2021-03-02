@@ -1,3 +1,22 @@
 [build-system]
-requires = ["setuptools>=40.6.0", "wheel>=0.34.2"]
+requires = [ "setuptools>=40.6.0", "wheel>=0.34.2",]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pprint36"
+version = "3.9.0.2"
+description = "Backport of pprint from Python 3.9 to Python 3.6-3.8"
+readme = "README.rst"
+keywords = [ "pprint", "prettyprint", "backport",]
+dynamic = [ "requires-python", "classifiers", "dependencies",]
+[[project.authors]]
+email = "dominic@davis-foster.co.uk"
+name = "Python Software Foundation"
+
+[project.license]
+file = "LICENSE"
+
+[project.urls]
+Homepage = "https://github.com/domdfcoding/pprint36"
+"Issue Tracker" = "https://github.com/domdfcoding/pprint36/issues"
+"Source Code" = "https://github.com/domdfcoding/pprint36"

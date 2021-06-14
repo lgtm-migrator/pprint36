@@ -4,7 +4,7 @@ Script to pull files from CPython git into this package.
 
 # 3rd party
 import yapf_isort
-from apeye.url import RequestsURL
+from apeye.requests_url import RequestsURL
 from domdf_python_tools.paths import PathPlus
 
 target_branch = 3.9

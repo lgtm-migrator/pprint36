@@ -196,7 +196,7 @@ class QueryTestCase(unittest.TestCase):
 				0,
 				0 + 0j,
 				0.0,
-				"",
+				'',
 				b"",
 				bytearray(),
 				(),
@@ -220,7 +220,7 @@ class QueryTestCase(unittest.TestCase):
 				-6,
 				-6 - 6j,
 				-1.5,
-				"x",
+				'x',
 				b"x",
 				bytearray(b"x"),
 				(3, ),
@@ -258,13 +258,13 @@ class QueryTestCase(unittest.TestCase):
 	def test_basic_line_wrap(self):
 		# verify basic line-wrapping operation
 		o = {
-				'RPM_cal': 0,
-				'RPM_cal2': 48059,
-				'Speed_cal': 0,
-				'controldesk_runtime_us': 0,
-				'main_code_runtime_us': 0,
-				'read_io_runtime_us': 0,
-				'write_io_runtime_us': 43690
+				"RPM_cal": 0,
+				"RPM_cal2": 48059,
+				"Speed_cal": 0,
+				"controldesk_runtime_us": 0,
+				"main_code_runtime_us": 0,
+				"read_io_runtime_us": 0,
+				"write_io_runtime_us": 43690
 				}
 		exp = """\
 {'RPM_cal': 0,
@@ -278,18 +278,18 @@ class QueryTestCase(unittest.TestCase):
 			self.assertEqual(pprint.pformat(type(o)), exp)
 
 		o = range(100)
-		exp = '[%s]' % ',\n '.join(map(str, o))
+		exp = "[%s]" % ',\n '.join(map(str, o))
 		for type in [list, list2]:
 			self.assertEqual(pprint.pformat(type(o)), exp)
 
 		o = tuple(range(100))
-		exp = '(%s)' % ',\n '.join(map(str, o))
+		exp = "(%s)" % ',\n '.join(map(str, o))
 		for type in [tuple, tuple2]:
 			self.assertEqual(pprint.pformat(type(o)), exp)
 
 		# indent parameter
 		o = range(100)
-		exp = '[   %s]' % ',\n    '.join(map(str, o))
+		exp = "[   %s]" % ',\n    '.join(map(str, o))
 		for type in [list, list2]:
 			self.assertEqual(pprint.pformat(type(o), indent=4), exp)
 
@@ -368,7 +368,7 @@ class QueryTestCase(unittest.TestCase):
 				)
 
 	def test_sort_dict(self):
-		d = dict.fromkeys('cba')
+		d = dict.fromkeys("cba")
 		self.assertEqual(pprint.pformat(d, sort_dicts=False), "{'c': None, 'b': None, 'a': None}")
 		self.assertEqual(
 				pprint.pformat([d, d], sort_dicts=False),
@@ -377,10 +377,10 @@ class QueryTestCase(unittest.TestCase):
 
 	def test_ordered_dict(self):
 		d = collections.OrderedDict()
-		self.assertEqual(pprint.pformat(d, width=1), 'OrderedDict()')
+		self.assertEqual(pprint.pformat(d, width=1), "OrderedDict()")
 		d = collections.OrderedDict([])
-		self.assertEqual(pprint.pformat(d, width=1), 'OrderedDict()')
-		words = 'the quick brown fox jumped over a lazy dog'.split()
+		self.assertEqual(pprint.pformat(d, width=1), "OrderedDict()")
+		words = "the quick brown fox jumped over a lazy dog".split()
 		d = collections.OrderedDict(zip(words, itertools.count()))
 		self.assertEqual(
 				pprint.pformat(d),
@@ -397,7 +397,7 @@ OrderedDict([('the', 0),
 				)
 
 	def test_mapping_proxy(self):
-		words = 'the quick brown fox jumped over a lazy dog'.split()
+		words = "the quick brown fox jumped over a lazy dog".split()
 		d = dict(zip(words, itertools.count()))
 		m = types.MappingProxyType(d)
 		self.assertEqual(
@@ -498,15 +498,15 @@ AdvancedNamespace(the=0,
 				)
 
 	def test_subclassing(self):
-		o = {'names with spaces': 'should be presented using repr()', 'others.should.not.be': 'like.this'}
+		o = {"names with spaces": "should be presented using repr()", "others.should.not.be": "like.this"}
 		exp = """\
 {'names with spaces': 'should be presented using repr()',
  others.should.not.be: like.this}"""
 		self.assertEqual(DottedPrettyPrinter().pformat(o), exp)
 
 	def test_set_reprs(self):
-		self.assertEqual(pprint.pformat(set()), 'set()')
-		self.assertEqual(pprint.pformat(set(range(3))), '{0, 1, 2}')
+		self.assertEqual(pprint.pformat(set()), "set()")
+		self.assertEqual(pprint.pformat(set(range(3))), "{0, 1, 2}")
 		self.assertEqual(pprint.pformat(set(range(7)), width=20), '''\
 {0,
  1,
@@ -526,10 +526,10 @@ set2({0,
       5,
       6})'''
 				)
-		self.assertEqual(pprint.pformat(set3(range(7)), width=20), 'set3({0, 1, 2, 3, 4, 5, 6})')
+		self.assertEqual(pprint.pformat(set3(range(7)), width=20), "set3({0, 1, 2, 3, 4, 5, 6})")
 
-		self.assertEqual(pprint.pformat(frozenset()), 'frozenset()')
-		self.assertEqual(pprint.pformat(frozenset(range(3))), 'frozenset({0, 1, 2})')
+		self.assertEqual(pprint.pformat(frozenset()), "frozenset()")
+		self.assertEqual(pprint.pformat(frozenset(range(3))), "frozenset({0, 1, 2})")
 		self.assertEqual(
 				pprint.pformat(frozenset(range(7)), width=20),
 				'''\
@@ -552,7 +552,7 @@ frozenset2({0,
             5,
             6})'''
 				)
-		self.assertEqual(pprint.pformat(frozenset3(range(7)), width=20), 'frozenset3({0, 1, 2, 3, 4, 5, 6})')
+		self.assertEqual(pprint.pformat(frozenset3(range(7)), width=20), "frozenset3({0, 1, 2, 3, 4, 5, 6})")
 
 	@unittest.expectedFailure
 	#See http://bugs.python.org/issue13907
@@ -774,9 +774,9 @@ frozenset2({0,
 		self.assertEqual(pprint.pformat(nested_dict), repr(nested_dict))
 		self.assertEqual(pprint.pformat(nested_list), repr(nested_list))
 
-		lv1_tuple = '(1, (...))'
-		lv1_dict = '{1: {...}}'
-		lv1_list = '[1, [...]]'
+		lv1_tuple = "(1, (...))"
+		lv1_dict = "{1: {...}}"
+		lv1_list = "[1, [...]]"
 		self.assertEqual(pprint.pformat(nested_tuple, depth=1), lv1_tuple)
 		self.assertEqual(pprint.pformat(nested_dict, depth=1), lv1_dict)
 		self.assertEqual(pprint.pformat(nested_list, depth=1), lv1_list)
@@ -790,17 +790,17 @@ frozenset2({0,
 		clean = lambda s: s.replace(' ', '').replace('\n', '')
 
 		self.assertEqual(clean(pprint.pformat(set(keys))), '{' + ','.join(map(repr, skeys)) + '}')
-		self.assertEqual(clean(pprint.pformat(frozenset(keys))), 'frozenset({' + ','.join(map(repr, skeys)) + '})')
+		self.assertEqual(clean(pprint.pformat(frozenset(keys))), "frozenset({" + ','.join(map(repr, skeys)) + "})")
 		self.assertEqual(
-				clean(pprint.pformat(dict.fromkeys(keys))), '{' + ','.join('%r:None' % k for k in skeys) + '}'
+				clean(pprint.pformat(dict.fromkeys(keys))), '{' + ','.join("%r:None" % k for k in skeys) + '}'
 				)
 
 		# Issue 10017: TypeError on user-defined types as dict keys.
-		self.assertEqual(pprint.pformat({Unorderable: 0, 1: 0}), '{1: 0, ' + repr(Unorderable) + ': 0}')
+		self.assertEqual(pprint.pformat({Unorderable: 0, 1: 0}), "{1: 0, " + repr(Unorderable) + ": 0}")
 
 		# Issue 14998: TypeError on tuples with NoneTypes as dict keys.
 		keys = [(1, ), (None, )]
-		self.assertEqual(pprint.pformat(dict.fromkeys(keys, 0)), '{%r: 0, %r: 0}' % tuple(sorted(keys, key=id)))
+		self.assertEqual(pprint.pformat(dict.fromkeys(keys, 0)), "{%r: 0, %r: 0}" % tuple(sorted(keys, key=id)))
 
 	def test_sort_orderable_and_unorderable_values(self):
 		# Issue 22721:  sorted pprints is not stable
@@ -820,7 +820,7 @@ frozenset2({0,
 
 	def test_str_wrap(self):
 		# pprint tries to wrap strings intelligently
-		fox = 'the quick brown fox jumped over a lazy dog'
+		fox = "the quick brown fox jumped over a lazy dog"
 		self.assertEqual(
 				pprint.pformat(fox, width=19), """\
 ('the quick brown '
@@ -886,7 +886,7 @@ frozenset2({0,
      'zoo']]]]]"""
 				)
 		# An unwrappable string is formatted as its repr
-		unwrappable = "x" * 100
+		unwrappable = 'x' * 100
 		self.assertEqual(pprint.pformat(unwrappable, width=80), repr(unwrappable))
 		self.assertEqual(pprint.pformat(''), "''")
 		# Check that the pprint is a usable repr
@@ -1067,7 +1067,7 @@ bytearray(b'\\x00\\x01\\x02\\x03'
 	def test_default_dict(self):
 		d = collections.defaultdict(int)
 		self.assertEqual(pprint.pformat(d, width=1), "defaultdict(<class 'int'>, {})")
-		words = 'the quick brown fox jumped over a lazy dog'.split()
+		words = "the quick brown fox jumped over a lazy dog".split()
 		d = collections.defaultdict(int, zip(words, itertools.count()))
 		self.assertEqual(
 				pprint.pformat(d),
@@ -1087,7 +1087,7 @@ defaultdict(<class 'int'>,
 	def test_counter(self):
 		d = collections.Counter()
 		self.assertEqual(pprint.pformat(d, width=1), "Counter()")
-		d = collections.Counter('senselessness')
+		d = collections.Counter("senselessness")
 		self.assertEqual(
 				pprint.pformat(d, width=40),
 				"""\
@@ -1100,7 +1100,7 @@ Counter({'s': 6,
 	def test_chainmap(self):
 		d = collections.ChainMap()
 		self.assertEqual(pprint.pformat(d, width=1), "ChainMap({})")
-		words = 'the quick brown fox jumped over a lazy dog'.split()
+		words = "the quick brown fox jumped over a lazy dog".split()
 		items = list(zip(words, itertools.count()))
 		d = collections.ChainMap(dict(items))
 		self.assertEqual(
@@ -1145,7 +1145,7 @@ ChainMap({'a': 6,
 		self.assertEqual(pprint.pformat(d, width=1), "deque([])")
 		d = collections.deque(maxlen=7)
 		self.assertEqual(pprint.pformat(d, width=1), "deque([], maxlen=7)")
-		words = 'the quick brown fox jumped over a lazy dog'.split()
+		words = "the quick brown fox jumped over a lazy dog".split()
 		d = collections.deque(zip(words, itertools.count()))
 		self.assertEqual(
 				pprint.pformat(d),
@@ -1177,7 +1177,7 @@ deque([('brown', 2),
 	def test_user_dict(self):
 		d = collections.UserDict()
 		self.assertEqual(pprint.pformat(d, width=1), "{}")
-		words = 'the quick brown fox jumped over a lazy dog'.split()
+		words = "the quick brown fox jumped over a lazy dog".split()
 		d = collections.UserDict(zip(words, itertools.count()))
 		self.assertEqual(
 				pprint.pformat(d),
@@ -1196,7 +1196,7 @@ deque([('brown', 2),
 	def test_user_list(self):
 		d = collections.UserList()
 		self.assertEqual(pprint.pformat(d, width=1), "[]")
-		words = 'the quick brown fox jumped over a lazy dog'.split()
+		words = "the quick brown fox jumped over a lazy dog".split()
 		d = collections.UserList(zip(words, itertools.count()))
 		self.assertEqual(
 				pprint.pformat(d),
@@ -1215,7 +1215,7 @@ deque([('brown', 2),
 	def test_user_string(self):
 		d = collections.UserString('')
 		self.assertEqual(pprint.pformat(d, width=1), "''")
-		d = collections.UserString('the quick brown fox jumped over a lazy dog')
+		d = collections.UserString("the quick brown fox jumped over a lazy dog")
 		self.assertEqual(
 				pprint.pformat(d, width=20), """\
 ('the quick brown '

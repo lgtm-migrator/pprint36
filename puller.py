@@ -3,7 +3,7 @@ Script to pull files from CPython git into this package.
 """
 
 # 3rd party
-import yapf_isort
+import formate
 from apeye.requests_url import RequestsURL
 from domdf_python_tools.paths import PathPlus
 
@@ -36,8 +36,9 @@ test_pprint_src = test_pprint_src.replace("test.test_set", "tests._test_set")
 (test_dir / "test_pprint.py").write_text(test_pprint_src)
 (test_dir / "_test_set.py").write_text(test_set_url.get().text)
 (lib_dir / "_pprint.py").write_text(source_url.get().text)
-(lib_dir / "_pprint.pyi").write_text(stubs_url.get().text)
 
-yapf_isort.reformat_file(lib_dir / "_pprint.py", yapf_style, isort_config_file)
-yapf_isort.reformat_file(test_dir / "test_pprint.py", yapf_style, isort_config_file)
-yapf_isort.reformat_file(test_dir / "_test_set.py", yapf_style, isort_config_file)
+
+formate_config = formate.config.load_toml("formate.toml")
+formate.reformat_file(lib_dir / "_pprint.py", formate_config)
+formate.reformat_file(test_dir / "test_pprint.py", formate_config)
+formate.reformat_file(test_dir / "_test_set.py", formate_config)

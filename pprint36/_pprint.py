@@ -88,7 +88,7 @@ class _safe_key:
 
     """
 
-	__slots__ = ['obj']
+	__slots__ = ["obj"]
 
 	def __init__(self, obj):
 		self.obj = obj
@@ -135,11 +135,11 @@ class PrettyPrinter:
 		indent = int(indent)
 		width = int(width)
 		if indent < 0:
-			raise ValueError('indent must be >= 0')
+			raise ValueError("indent must be >= 0")
 		if depth is not None and depth <= 0:
-			raise ValueError('depth must be > 0')
+			raise ValueError("depth must be > 0")
 		if not width:
-			raise ValueError('width must be != 0')
+			raise ValueError("width must be != 0")
 		self._depth = depth
 		self._indent_per_level = indent
 		self._width = width
@@ -152,7 +152,7 @@ class PrettyPrinter:
 
 	def pprint(self, object):
 		self._format(object, self._stream, 0, 0, {}, 0)
-		self._stream.write("\n")
+		self._stream.write('\n')
 
 	def pformat(self, object):
 		sio = _StringIO()
@@ -227,7 +227,7 @@ class PrettyPrinter:
 
 	def _pprint_tuple(self, object, stream, indent, allowance, context, level):
 		stream.write('(')
-		endchar = ',)' if len(object) == 1 else ')'
+		endchar = ",)" if len(object) == 1 else ')'
 		self._format_items(object, stream, indent, allowance + len(endchar), context, level)
 		stream.write(endchar)
 
@@ -242,8 +242,8 @@ class PrettyPrinter:
 			stream.write('{')
 			endchar = '}'
 		else:
-			stream.write(typ.__name__ + '({')
-			endchar = '})'
+			stream.write(typ.__name__ + "({")
+			endchar = "})"
 			indent += len(typ.__name__) + 1
 		object = sorted(object, key=_safe_key)
 		self._format_items(object, stream, indent, allowance + len(endchar), context, level)
@@ -326,14 +326,14 @@ class PrettyPrinter:
 
 	def _pprint_bytearray(self, object, stream, indent, allowance, context, level):
 		write = stream.write
-		write('bytearray(')
+		write("bytearray(")
 		self._pprint_bytes(bytes(object), stream, indent + 10, allowance + 1, context, level + 1)
 		write(')')
 
 	_dispatch[bytearray.__repr__] = _pprint_bytearray
 
 	def _pprint_mappingproxy(self, object, stream, indent, allowance, context, level):
-		stream.write('mappingproxy(')
+		stream.write("mappingproxy(")
 		self._format(object.copy(), stream, indent + 13, allowance + 1, context, level)
 		stream.write(')')
 
@@ -343,7 +343,7 @@ class PrettyPrinter:
 		if type(object) is _types.SimpleNamespace:
 			# The SimpleNamespace repr is "namespace" instead of the class
 			# name, so we do the same here. For subclasses; use the class name.
-			cls_name = 'namespace'
+			cls_name = "namespace"
 		else:
 			cls_name = object.__class__.__name__
 		indent += len(cls_name) + 1
@@ -373,7 +373,7 @@ class PrettyPrinter:
 			last = i == last_index
 			rep = self._repr(key, context, level)
 			write(rep)
-			write(': ')
+			write(": ")
 			self._format(ent, stream, indent + len(rep) + 2, allowance if last else 1, context, level)
 			if not last:
 				write(delimnl)
@@ -410,7 +410,7 @@ class PrettyPrinter:
 				if width >= w:
 					width -= w
 					write(delim)
-					delim = ', '
+					delim = ", "
 					write(rep)
 					continue
 			write(delim)
@@ -450,12 +450,12 @@ class PrettyPrinter:
 			stream.write(repr(object))
 			return
 		cls = object.__class__
-		stream.write(cls.__name__ + '({')
+		stream.write(cls.__name__ + "({")
 		if self._indent_per_level > 1:
 			stream.write((self._indent_per_level - 1) * ' ')
 		items = object.most_common()
 		self._format_dict_items(items, stream, indent + len(cls.__name__) + 1, allowance + 2, context, level)
-		stream.write('})')
+		stream.write("})")
 
 	_dispatch[_collections.Counter.__repr__] = _pprint_counter
 
@@ -486,7 +486,7 @@ class PrettyPrinter:
 		stream.write('[')
 		if object.maxlen is None:
 			self._format_items(object, stream, indent, allowance + 2, context, level)
-			stream.write('])')
+			stream.write("])")
 		else:
 			self._format_items(object, stream, indent, 2, context, level)
 			rml = self._repr(object.maxlen, context, level)

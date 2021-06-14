@@ -35,7 +35,7 @@ The pertinent changes from Python 3.6 to Python 3.9 are:
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 	* - QA
-	  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
+	  - |codefactor| |actions_flake8| |actions_mypy|
 	* - Other
 	  - |license| |language| |requires|
 
@@ -108,10 +108,6 @@ The pertinent changes from Python 3.6 to Python 3.9 are:
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/pprint36
 	:target: https://pypi.org/project/pprint36/
 	:alt: PyPI - Downloads
-
-.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/pprint36/master.svg
-	:target: https://results.pre-commit.ci/latest/github/domdfcoding/pprint36/master
-	:alt: pre-commit.ci status
 
 .. end shields
 

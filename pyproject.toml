@@ -7,11 +7,13 @@ name = "pprint36"
 version = "3.9.0.2"
 description = "Backport of pprint from Python 3.9 to Python 3.6-3.8"
 readme = "README.rst"
-keywords = [ "pprint", "prettyprint", "backport",]
+keywords = [ "backport", "pprint", "prettyprint",]
 dynamic = [ "requires-python", "classifiers", "dependencies",]
+
 [[project.authors]]
-email = "dominic@davis-foster.co.uk"
 name = "Python Software Foundation"
+email = "dominic@davis-foster.co.uk"
+
 
 [project.license]
 file = "LICENSE"
@@ -20,3 +22,8 @@ file = "LICENSE"
 Homepage = "https://github.com/domdfcoding/pprint36"
 "Issue Tracker" = "https://github.com/domdfcoding/pprint36/issues"
 "Source Code" = "https://github.com/domdfcoding/pprint36"
+
+[tool.mkrecipe]
+conda-channels = [ "domdfcoding",]
+extras = "all"
+license-key = "PSFLicense"
